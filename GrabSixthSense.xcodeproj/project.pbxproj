@@ -33,6 +33,10 @@
 		822E986B2C54DE1800F42A9B /* SearchSpeechViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E986A2C54DE1800F42A9B /* SearchSpeechViewModel.swift */; };
 		822E986E2C54DE3400F42A9B /* TransportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E986D2C54DE3400F42A9B /* TransportViewModel.swift */; };
 		822E98702C54DE3B00F42A9B /* TransportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E986F2C54DE3B00F42A9B /* TransportViewController.swift */; };
+		822E98752C54E3E200F42A9B /* SanomatSans-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 822E98712C54E3E100F42A9B /* SanomatSans-Medium.otf */; };
+		822E98762C54E3E200F42A9B /* SanomatSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 822E98722C54E3E100F42A9B /* SanomatSans-Regular.otf */; };
+		822E98772C54E3E200F42A9B /* SanomatSans-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 822E98732C54E3E200F42A9B /* SanomatSans-Bold.otf */; };
+		822E98782C54E3E200F42A9B /* SanomatSans-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 822E98742C54E3E200F42A9B /* SanomatSans-Light.otf */; };
 		D897610DF08CC6C0C1FE32F9 /* Pods_GrabSixthSense.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F64532347B6AF1456AD5D6A /* Pods_GrabSixthSense.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +71,10 @@
 		822E986A2C54DE1800F42A9B /* SearchSpeechViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSpeechViewModel.swift; sourceTree = "<group>"; };
 		822E986D2C54DE3400F42A9B /* TransportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportViewModel.swift; sourceTree = "<group>"; };
 		822E986F2C54DE3B00F42A9B /* TransportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportViewController.swift; sourceTree = "<group>"; };
+		822E98712C54E3E100F42A9B /* SanomatSans-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanomatSans-Medium.otf"; sourceTree = "<group>"; };
+		822E98722C54E3E100F42A9B /* SanomatSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanomatSans-Regular.otf"; sourceTree = "<group>"; };
+		822E98732C54E3E200F42A9B /* SanomatSans-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanomatSans-Bold.otf"; sourceTree = "<group>"; };
+		822E98742C54E3E200F42A9B /* SanomatSans-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanomatSans-Light.otf"; sourceTree = "<group>"; };
 		BB50C696E3C90E36A8A91F32 /* Pods-GrabSixthSense.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrabSixthSense.release.xcconfig"; path = "Target Support Files/Pods-GrabSixthSense/Pods-GrabSixthSense.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +168,10 @@
 			isa = PBXGroup;
 			children = (
 				55E6E5CC2C54CA5400173EBA /* Assets.xcassets */,
+				822E98732C54E3E200F42A9B /* SanomatSans-Bold.otf */,
+				822E98742C54E3E200F42A9B /* SanomatSans-Light.otf */,
+				822E98712C54E3E100F42A9B /* SanomatSans-Medium.otf */,
+				822E98722C54E3E100F42A9B /* SanomatSans-Regular.otf */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -332,6 +344,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				55E6E5CD2C54CA5400173EBA /* Assets.xcassets in Resources */,
+				822E98772C54E3E200F42A9B /* SanomatSans-Bold.otf in Resources */,
+				822E98752C54E3E200F42A9B /* SanomatSans-Medium.otf in Resources */,
+				822E98762C54E3E200F42A9B /* SanomatSans-Regular.otf in Resources */,
+				822E98782C54E3E200F42A9B /* SanomatSans-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

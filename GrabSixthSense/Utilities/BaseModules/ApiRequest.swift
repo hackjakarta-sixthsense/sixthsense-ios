@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct ApiRequest {
-    
-}
-
 enum ApiState {
     case idle
     case loading
