@@ -35,8 +35,12 @@ class TransportViewController: ViewController {
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
-        setupLocationManager()
         setupBackgroundView()
+    }
+    
+    internal override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupLocationManager()
     }
     
     private func setupBackgroundView() {
@@ -111,7 +115,59 @@ class TransportViewController: ViewController {
 extension TransportViewController {
     
     func assignState(state: ApiState) {
+        switch state {
+        case .loading:
+            print("fetch state")
+        case .success:
+            updateMaps()
+        default: break
+        }
+    }
+    
+}
+
+extension TransportViewController {
+    
+    func updateMaps() {
+        addMapMarker(originPoint: viewModel.originDegree ?? [CLLocationDegrees](), destinationPoint: viewModel.destinationDegree ?? [CLLocationDegrees]())
+        mapsBoundSetter()
+        updateMapsView(mapsPath: viewModel.mapsBounds ?? GMSPath())
+    }
+    
+    private func addMapMarker(originPoint: [CLLocationDegrees], destinationPoint: [CLLocationDegrees]) {
+        let sourceMarker = GMSMarker()
+        sourceMarker.position = CLLocationCoordinate2D(latitude: originPoint[0], longitude: originPoint[1])
+        sourceMarker.title = "Source"
+        sourceMarker.map = mapView
         
+        let destinationMarker = GMSMarker()
+        destinationMarker.position = CLLocationCoordinate2D(latitude: destinationPoint[0], longitude: destinationPoint[1])
+        destinationMarker.title = "Destination"
+        destinationMarker.map = mapView
+    }
+    
+    private func mapsBoundSetter() {
+        let bounds = GMSCoordinateBounds(path: viewModel.mapsBounds ?? GMSPath())
+        mapView.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 70.0))
+    }
+    
+    func updateMapsView(mapsPath pathArray: GMSPath) {
+        let currentPath = GMSMutablePath()
+        let polyline = GMSPolyline(path: currentPath)
+        polyline.strokeWidth = 8
+        polyline.strokeColor = .systemGreen
+        polyline.map = mapView
+        var index = 0
+        
+        Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { timer in
+            if index < pathArray.count() {
+                currentPath.add(pathArray.coordinate(at: UInt(index)))
+                polyline.path = currentPath
+                index += 1
+            } else {
+                timer.invalidate()
+            }
+        }
     }
     
 }
@@ -130,9 +186,14 @@ extension TransportViewController: CLLocationManagerDelegate {
             currentLocationDegrees = [currentLocation.latitude, currentLocation.longitude]
             let point = String(currentLocation.latitude) + "," + String(currentLocation.longitude)
             print("point: \(point)")
+            viewModel.fetch(originPoint: point, destinationPoint: viewModel.destination ?? "")
             
             locationManager.stopUpdatingLocation()
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Failed to locate device: \(error)")
     }
     
 }

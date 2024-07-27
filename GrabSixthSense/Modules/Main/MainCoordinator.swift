@@ -40,11 +40,12 @@ struct MainCoordinator: Coordinator {
         navigation.present(view, animated: true)
     }
 
-    func navigateToMaps() {
+    func navigateToMaps(destination: String) {
         let viewModel = TransportViewModel()
         let view = TransportViewController(viewModel: viewModel)
         viewModel.coordinator = self
         viewModel.view = view
+        viewModel.destination = destination
         navigation.pushViewController(view, animated: true)
     }
 }
