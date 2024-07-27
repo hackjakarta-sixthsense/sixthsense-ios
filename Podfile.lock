@@ -1,20 +1,29 @@
 PODS:
   - Alamofire (5.9.1)
+  - GoogleMaps (8.4.0):
+    - GoogleMaps/Maps (= 8.4.0)
+  - GoogleMaps/Base (8.4.0)
+  - GoogleMaps/Maps (8.4.0):
+    - GoogleMaps/Base
   - SkeletonView (1.30.4)
 
 DEPENDENCIES:
   - Alamofire
+  - GoogleMaps (= 8.4.0)
   - SkeletonView
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - GoogleMaps
   trunk:
     - Alamofire
     - SkeletonView
 
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
+  GoogleMaps: 8939898920281c649150e0af74aa291c60f2e77d
   SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
 
-PODFILE CHECKSUM: 9133b2fcdff05a9ef0bca3bf52e2590b3143a970
+PODFILE CHECKSUM: c7fadf323eb145a8dcd5222826231892b536035c
 
 COCOAPODS: 1.15.2

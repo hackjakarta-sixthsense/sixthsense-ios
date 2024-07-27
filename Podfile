@@ -1,4 +1,5 @@
 # Uncomment the next line to define a global platform for your project
+source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '14.0'
 
 target 'GrabSixthSense' do
@@ -8,5 +9,6 @@ target 'GrabSixthSense' do
   # Pods for GrabSixthSense
   pod 'Alamofire'
   pod 'SkeletonView'
+  pod 'GoogleMaps', '8.4.0'
 
 end

@@ -295,6 +295,7 @@
 				55E6E5BD2C54CA5200173EBA /* Frameworks */,
 				55E6E5BE2C54CA5200173EBA /* Resources */,
 				54C4811B3B5B809223098E57 /* [CP] Embed Pods Frameworks */,
+				BDFB163CF39A3CAEEA56AD0C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -369,6 +370,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GrabSixthSense/Pods-GrabSixthSense-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDFB163CF39A3CAEEA56AD0C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GrabSixthSense/Pods-GrabSixthSense-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GrabSixthSense/Pods-GrabSixthSense-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GrabSixthSense/Pods-GrabSixthSense-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E59810BD05E52743AFE0B6B1 /* [CP] Check Pods Manifest.lock */ = {
