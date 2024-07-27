@@ -42,6 +42,7 @@ extension CGFloat {
         case largeRectHeight = 76
         case buttonHeight = 48
         case tabbarHeight = 61
+        case actionBottomViewHeight = 320
     }
     
     static func apply(contentSize size: ContentSize) -> CGFloat {

@@ -31,4 +31,13 @@ struct MainCoordinator: Coordinator {
         viewModel.view = view
         navigation.pushViewController(view, animated: true)
     }
+    
+    func navigateToMaps() {
+        let viewModel = TransportViewModel()
+        let view = TransportViewController(viewModel: viewModel)
+        viewModel.coordinator = self
+        viewModel.view = view
+        navigation.pushViewController(view, animated: true)
+    }
+    
 }

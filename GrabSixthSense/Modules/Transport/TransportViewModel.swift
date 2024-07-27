@@ -9,7 +9,7 @@ import UIKit
 
 class TransportViewModel: ViewModel {
     
-    var mainCoordinator: MainCoordinator?
+    var coordinator: MainCoordinator?
     weak var view: TransportViewController?
     
     override init() {
