@@ -29,6 +29,10 @@
 		822E98522C54D84D00F42A9B /* LauncherHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E98512C54D84D00F42A9B /* LauncherHomeVC.swift */; };
 		822E98542C54D85400F42A9B /* LauncherHomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E98532C54D85400F42A9B /* LauncherHomeVM.swift */; };
 		822E98562C54D87200F42A9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E98552C54D87200F42A9B /* ViewController.swift */; };
+		822E98692C54DE0F00F42A9B /* SearchSpeechModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E98682C54DE0F00F42A9B /* SearchSpeechModal.swift */; };
+		822E986B2C54DE1800F42A9B /* SearchSpeechViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E986A2C54DE1800F42A9B /* SearchSpeechViewModel.swift */; };
+		822E986E2C54DE3400F42A9B /* TransportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E986D2C54DE3400F42A9B /* TransportViewModel.swift */; };
+		822E98702C54DE3B00F42A9B /* TransportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E986F2C54DE3B00F42A9B /* TransportViewController.swift */; };
 		D897610DF08CC6C0C1FE32F9 /* Pods_GrabSixthSense.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F64532347B6AF1456AD5D6A /* Pods_GrabSixthSense.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +63,10 @@
 		822E98512C54D84D00F42A9B /* LauncherHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherHomeVC.swift; sourceTree = "<group>"; };
 		822E98532C54D85400F42A9B /* LauncherHomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherHomeVM.swift; sourceTree = "<group>"; };
 		822E98552C54D87200F42A9B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		822E98682C54DE0F00F42A9B /* SearchSpeechModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSpeechModal.swift; sourceTree = "<group>"; };
+		822E986A2C54DE1800F42A9B /* SearchSpeechViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSpeechViewModel.swift; sourceTree = "<group>"; };
+		822E986D2C54DE3400F42A9B /* TransportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportViewModel.swift; sourceTree = "<group>"; };
+		822E986F2C54DE3B00F42A9B /* TransportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportViewController.swift; sourceTree = "<group>"; };
 		BB50C696E3C90E36A8A91F32 /* Pods-GrabSixthSense.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrabSixthSense.release.xcconfig"; path = "Target Support Files/Pods-GrabSixthSense/Pods-GrabSixthSense.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,7 +123,9 @@
 			children = (
 				822E984F2C54D83F00F42A9B /* Launcher */,
 				822E982B2C54D0B400F42A9B /* Main */,
+				822E98662C54DE0100F42A9B /* SearchModule */,
 				822E98262C54D08200F42A9B /* SplashScreen */,
+				822E986C2C54DE1A00F42A9B /* Transport */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -225,6 +235,32 @@
 				822E98532C54D85400F42A9B /* LauncherHomeVM.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		822E98662C54DE0100F42A9B /* SearchModule */ = {
+			isa = PBXGroup;
+			children = (
+				822E98672C54DE0900F42A9B /* Speech */,
+			);
+			path = SearchModule;
+			sourceTree = "<group>";
+		};
+		822E98672C54DE0900F42A9B /* Speech */ = {
+			isa = PBXGroup;
+			children = (
+				822E98682C54DE0F00F42A9B /* SearchSpeechModal.swift */,
+				822E986A2C54DE1800F42A9B /* SearchSpeechViewModel.swift */,
+			);
+			path = Speech;
+			sourceTree = "<group>";
+		};
+		822E986C2C54DE1A00F42A9B /* Transport */ = {
+			isa = PBXGroup;
+			children = (
+				822E986F2C54DE3B00F42A9B /* TransportViewController.swift */,
+				822E986D2C54DE3400F42A9B /* TransportViewModel.swift */,
+			);
+			path = Transport;
 			sourceTree = "<group>";
 		};
 		96C4D4F174199B697E88D948 /* Frameworks */ = {
@@ -349,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				822E98482C54D68B00F42A9B /* BaseResponse.swift in Sources */,
+				822E98702C54DE3B00F42A9B /* TransportViewController.swift in Sources */,
 				822E982A2C54D0B200F42A9B /* SplashScreenViewModel.swift in Sources */,
 				822E984C2C54D6A800F42A9B /* Endpoints.swift in Sources */,
 				822E98372C54D59D00F42A9B /* Assets.swift in Sources */,
@@ -356,9 +393,12 @@
 				822E982D2C54D0BC00F42A9B /* MainCoordinator.swift in Sources */,
 				822E98342C54D13500F42A9B /* Coordinator.swift in Sources */,
 				55E6E5C42C54CA5200173EBA /* AppDelegate.swift in Sources */,
+				822E986B2C54DE1800F42A9B /* SearchSpeechViewModel.swift in Sources */,
 				822E983A2C54D5E400F42A9B /* UIImage+.swift in Sources */,
 				822E98442C54D67A00F42A9B /* UIButton+.swift in Sources */,
 				822E984E2C54D79000F42A9B /* ViewModel.swift in Sources */,
+				822E986E2C54DE3400F42A9B /* TransportViewModel.swift in Sources */,
+				822E98692C54DE0F00F42A9B /* SearchSpeechModal.swift in Sources */,
 				822E98402C54D67000F42A9B /* String+.swift in Sources */,
 				822E98422C54D67500F42A9B /* UIApplication+.swift in Sources */,
 				822E98462C54D68000F42A9B /* UIFont+.swift in Sources */,
