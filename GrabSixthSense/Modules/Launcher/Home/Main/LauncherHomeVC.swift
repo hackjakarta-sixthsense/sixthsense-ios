@@ -15,6 +15,9 @@ class LauncherHomeVC: ViewController {
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private let searchBar = SearchTextField()
+    private let menuSection = LauncherHomeMenu()
+    private let paymentSection = LauncherHomePaymnet()
+    private let promoSection = LauncherHomePromo()
     
     init(viewModel: LauncherHomeVM) {
         self.viewModel = viewModel
@@ -27,8 +30,7 @@ class LauncherHomeVC: ViewController {
         super.viewDidLoad()
         
         [backgroundView, scrollView].forEach { [weak self] view in
-            self?.view.addSubview(view)
-        }
+            self?.view.addSubview(view) }
         
         backgroundView.backgroundColor = .accent
         backgroundView.constraints(
@@ -52,21 +54,54 @@ class LauncherHomeVC: ViewController {
             width: .apply(currentDevice: .screenWidth), height: 1000
         )
         
-        [searchBar].forEach { [weak self] view in
-            self?.contentView.addSubview(view)
-        }
+        [searchBar, menuSection, paymentSection, promoSection].forEach { [weak self] view in
+            self?.contentView.addSubview(view) }
         
-        searchBar.micAction = {  }
+        searchBar.micAction = { [weak self] in
+            self?.viewModel.presentModalVoice() }
         searchBar.constraints(
             top: contentView.topAnchor, leading: contentView.leadingAnchor,
             trailing: contentView.trailingAnchor, padding: .init(
                 top: .apply(currentDevice: .statusBarHeight) + .apply(insets: .medium),
                 left: .apply(insets: .medium), bottom: 0, right: .apply(insets: .medium)),
             height: .apply(contentSize: .rectHeight))
+        
+        menuSection.constraints(
+            top: searchBar.bottomAnchor, leading: contentView.leadingAnchor,
+            trailing: contentView.trailingAnchor, padding: .init(
+                top: .apply(insets: .medium), left: 0, bottom: 0, right: 0),
+            height: (.apply(contentSize: .largeRectHeight) +
+                .apply(insets: .body)) * 2)
+        
+        paymentSection.constraints(
+            top: menuSection.bottomAnchor, leading: contentView.leadingAnchor,
+            trailing: contentView.trailingAnchor, padding: .init(
+                top: .apply(insets: .medium), left: 0, bottom: 0, right: 0
+            ), height: .apply(contentSize: .rectHeight))
+        
+        promoSection.constraints(
+            top: paymentSection.bottomAnchor, leading: contentView.leadingAnchor,
+            trailing: contentView.trailingAnchor, padding: .init(
+                top: .apply(insets: .mediumLarge) + 4, left: 0, bottom: 0, right: 0
+            ), height: .apply(insets: .body) + .apply(insets: .xSmall) +
+                .apply(insets: .smallest) + 244)
+        
+        viewModel.fetch()
     }
 }
 
 extension LauncherHomeVC: UIScrollViewDelegate {
+    
+    func assignState(with state: ApiState) {
+        menuSection.contentSources = viewModel.menuResponse
+        menuSection.assignState(with: state)
+        
+        paymentSection.contentSources = viewModel.paymentResponse
+        paymentSection.assignState(with: state)
+        
+        promoSection.contentSources = viewModel.promoResponse
+        promoSection.assignState(with: state)
+    }
     
     internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
