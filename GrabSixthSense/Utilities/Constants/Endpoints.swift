@@ -7,3 +7,6 @@
 
 import Foundation
 
+enum Endpoints: String {
+    case home = ""
+}
