@@ -223,8 +223,8 @@
 				822E98492C54D69200F42A9B /* ApiRequest.swift */,
 				822E98472C54D68B00F42A9B /* BaseResponse.swift */,
 				822E98332C54D13500F42A9B /* Coordinator.swift */,
-				822E984D2C54D79000F42A9B /* ViewModel.swift */,
 				822E98552C54D87200F42A9B /* ViewController.swift */,
+				822E984D2C54D79000F42A9B /* ViewModel.swift */,
 			);
 			path = BaseModules;
 			sourceTree = "<group>";
