@@ -13,6 +13,7 @@
 		55F664762C54EE02005C6EF9 /* CircleFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F664752C54EE02005C6EF9 /* CircleFloatingButton.swift */; };
 		55F664782C5500A9005C6EF9 /* OvalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F664772C5500A9005C6EF9 /* OvalButton.swift */; };
 		55F6647B2C553604005C6EF9 /* TransportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F6647A2C553604005C6EF9 /* TransportService.swift */; };
+		55F6647F2C5598EC005C6EF9 /* TransportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F6647E2C5598EC005C6EF9 /* TransportModel.swift */; };
 		822E98282C54D0A200F42A9B /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E98272C54D0A200F42A9B /* SplashScreenViewController.swift */; };
 		822E982A2C54D0B200F42A9B /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E98292C54D0B200F42A9B /* SplashScreenViewModel.swift */; };
 		822E982D2C54D0BC00F42A9B /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E982C2C54D0BC00F42A9B /* MainCoordinator.swift */; };
@@ -59,6 +60,7 @@
 		55F664752C54EE02005C6EF9 /* CircleFloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleFloatingButton.swift; sourceTree = "<group>"; };
 		55F664772C5500A9005C6EF9 /* OvalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalButton.swift; sourceTree = "<group>"; };
 		55F6647A2C553604005C6EF9 /* TransportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportService.swift; sourceTree = "<group>"; };
+		55F6647E2C5598EC005C6EF9 /* TransportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportModel.swift; sourceTree = "<group>"; };
 		822E98272C54D0A200F42A9B /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		822E98292C54D0B200F42A9B /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
 		822E982C2C54D0BC00F42A9B /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				55F6647A2C553604005C6EF9 /* TransportService.swift */,
+				55F6647E2C5598EC005C6EF9 /* TransportModel.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				822E982D2C54D0BC00F42A9B /* MainCoordinator.swift in Sources */,
 				822E98342C54D13500F42A9B /* Coordinator.swift in Sources */,
 				55E6E5C42C54CA5200173EBA /* AppDelegate.swift in Sources */,
+				55F6647F2C5598EC005C6EF9 /* TransportModel.swift in Sources */,
 				822E98842C54E85A00F42A9B /* LauncherHomeMenu.swift in Sources */,
 				822E986B2C54DE1800F42A9B /* SearchSpeechViewModel.swift in Sources */,
 				822E983A2C54D5E400F42A9B /* UIImage+.swift in Sources */,
