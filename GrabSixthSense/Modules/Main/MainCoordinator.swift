@@ -32,6 +32,14 @@ struct MainCoordinator: Coordinator {
         navigation.pushViewController(view, animated: true)
     }
     
+    func presentSpeechModal() {
+        let viewModel = SearchSpeechViewModel()
+        let view = SearchSpeechModal(viewModel: viewModel)
+        viewModel.coordinator = self
+        viewModel.view = view
+        navigation.present(view, animated: true)
+    }
+
     func navigateToMaps() {
         let viewModel = TransportViewModel()
         let view = TransportViewController(viewModel: viewModel)
@@ -39,5 +47,4 @@ struct MainCoordinator: Coordinator {
         viewModel.view = view
         navigation.pushViewController(view, animated: true)
     }
-    
 }

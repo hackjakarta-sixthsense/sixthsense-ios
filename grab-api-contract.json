@@ -1,0 +1,67 @@
+{
+    "menu": {
+        "listMenu": [
+            {
+                "icon": "https://min.io/menu-icon-food",
+                "name": "Food"
+            },
+            {
+                "icon": "https://min.io/menu-icon-mart",
+                "name": "Mart"
+            },
+            {
+                "icon": "https://min.io/menu-icon-express",
+                "name": "Express"
+            },
+            {
+                "icon": "https://min.io/menu-icon-transport",
+                "name": "Transport"
+            },
+            {
+                "icon": "https://min.io/menu-icon-mall",
+                "name": "Mall"
+            },
+            {
+                "icon": "https://min.io/menu-icon-offers",
+                "name": "Offers"
+            },
+            {
+                "icon": "https://min.io/menu-icon-gift",
+                "name": "Gift Cards"
+            },
+            {
+                "icon": "https://min.io/menu-icon-more",
+                "name": "More"
+            }
+        ]
+    },
+    "payment": {
+        "listPayment": [
+            {
+                "caption": "Activate",
+                "content": "GrabPay",
+                "icon": "https://min.io/payment-icon-wallet"
+            },
+            {
+                "caption": "Use Points",
+                "content": "758",
+                "icon": "https://min.io/payment-icon-crown"
+            }
+        ]
+    },
+    "promo": {
+        "title": "Celebrate Mid-Autumn Festival",
+        "listPromo": [
+            {
+                "image": "https://min.io/promo-img-first",
+                "title": "Order mooncakes to gift & to enjoy",
+                "validUntil": "21 Sep"
+            },
+            {
+                "image": "https://min.io/promo-img-second",
+                "title": "Plus an EXTRA $20 OFF on groceries",
+                "validUntil": "31 Aug"
+            }
+        ]
+    }
+}

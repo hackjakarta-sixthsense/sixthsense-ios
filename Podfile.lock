@@ -13,10 +13,9 @@ DEPENDENCIES:
   - SkeletonView
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - GoogleMaps
   trunk:
     - Alamofire
+    - GoogleMaps
     - SkeletonView
 
 SPEC CHECKSUMS:
@@ -24,6 +23,6 @@ SPEC CHECKSUMS:
   GoogleMaps: 8939898920281c649150e0af74aa291c60f2e77d
   SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
 
-PODFILE CHECKSUM: c7fadf323eb145a8dcd5222826231892b536035c
+PODFILE CHECKSUM: 8b7cb26efddd4ce54d9faa96d8c52db2d0994fb9
 
 COCOAPODS: 1.15.2

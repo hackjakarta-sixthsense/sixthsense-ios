@@ -39,6 +39,11 @@
 		822E98762C54E3E200F42A9B /* SanomatSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 822E98722C54E3E100F42A9B /* SanomatSans-Regular.otf */; };
 		822E98772C54E3E200F42A9B /* SanomatSans-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 822E98732C54E3E200F42A9B /* SanomatSans-Bold.otf */; };
 		822E98782C54E3E200F42A9B /* SanomatSans-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 822E98742C54E3E200F42A9B /* SanomatSans-Light.otf */; };
+		822E98842C54E85A00F42A9B /* LauncherHomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E98812C54E85A00F42A9B /* LauncherHomeMenu.swift */; };
+		822E98852C54E85A00F42A9B /* LauncherHomePaymnet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E98822C54E85A00F42A9B /* LauncherHomePaymnet.swift */; };
+		822E98862C54E85A00F42A9B /* LauncherHomePromo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E98832C54E85A00F42A9B /* LauncherHomePromo.swift */; };
+		822E988C2C54E87F00F42A9B /* LauncherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E988A2C54E87F00F42A9B /* LauncherModel.swift */; };
+		822E988D2C54E87F00F42A9B /* LauncherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E988B2C54E87F00F42A9B /* LauncherService.swift */; };
 		D897610DF08CC6C0C1FE32F9 /* Pods_GrabSixthSense.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F64532347B6AF1456AD5D6A /* Pods_GrabSixthSense.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +84,11 @@
 		822E98722C54E3E100F42A9B /* SanomatSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanomatSans-Regular.otf"; sourceTree = "<group>"; };
 		822E98732C54E3E200F42A9B /* SanomatSans-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanomatSans-Bold.otf"; sourceTree = "<group>"; };
 		822E98742C54E3E200F42A9B /* SanomatSans-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanomatSans-Light.otf"; sourceTree = "<group>"; };
+		822E98812C54E85A00F42A9B /* LauncherHomeMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LauncherHomeMenu.swift; sourceTree = "<group>"; };
+		822E98822C54E85A00F42A9B /* LauncherHomePaymnet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LauncherHomePaymnet.swift; sourceTree = "<group>"; };
+		822E98832C54E85A00F42A9B /* LauncherHomePromo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LauncherHomePromo.swift; sourceTree = "<group>"; };
+		822E988A2C54E87F00F42A9B /* LauncherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LauncherModel.swift; sourceTree = "<group>"; };
+		822E988B2C54E87F00F42A9B /* LauncherService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LauncherService.swift; sourceTree = "<group>"; };
 		BB50C696E3C90E36A8A91F32 /* Pods-GrabSixthSense.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrabSixthSense.release.xcconfig"; path = "Target Support Files/Pods-GrabSixthSense/Pods-GrabSixthSense.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -248,6 +258,7 @@
 		822E984F2C54D83F00F42A9B /* Launcher */ = {
 			isa = PBXGroup;
 			children = (
+				822E98892C54E87900F42A9B /* Main */,
 				822E98502C54D84400F42A9B /* Home */,
 			);
 			path = Launcher;
@@ -256,8 +267,8 @@
 		822E98502C54D84400F42A9B /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				822E98512C54D84D00F42A9B /* LauncherHomeVC.swift */,
-				822E98532C54D85400F42A9B /* LauncherHomeVM.swift */,
+				822E987A2C54E76000F42A9B /* Components */,
+				822E98792C54E74200F42A9B /* Main */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -287,6 +298,34 @@
 				822E986D2C54DE3400F42A9B /* TransportViewModel.swift */,
 			);
 			path = Transport;
+			sourceTree = "<group>";
+		};
+		822E98792C54E74200F42A9B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				822E98512C54D84D00F42A9B /* LauncherHomeVC.swift */,
+				822E98532C54D85400F42A9B /* LauncherHomeVM.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		822E987A2C54E76000F42A9B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				822E98812C54E85A00F42A9B /* LauncherHomeMenu.swift */,
+				822E98822C54E85A00F42A9B /* LauncherHomePaymnet.swift */,
+				822E98832C54E85A00F42A9B /* LauncherHomePromo.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		822E98892C54E87900F42A9B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				822E988A2C54E87F00F42A9B /* LauncherModel.swift */,
+				822E988B2C54E87F00F42A9B /* LauncherService.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		96C4D4F174199B697E88D948 /* Frameworks */ = {
@@ -441,12 +480,14 @@
 				822E982D2C54D0BC00F42A9B /* MainCoordinator.swift in Sources */,
 				822E98342C54D13500F42A9B /* Coordinator.swift in Sources */,
 				55E6E5C42C54CA5200173EBA /* AppDelegate.swift in Sources */,
+				822E98842C54E85A00F42A9B /* LauncherHomeMenu.swift in Sources */,
 				822E986B2C54DE1800F42A9B /* SearchSpeechViewModel.swift in Sources */,
 				822E983A2C54D5E400F42A9B /* UIImage+.swift in Sources */,
 				822E98442C54D67A00F42A9B /* UIButton+.swift in Sources */,
 				822E984E2C54D79000F42A9B /* ViewModel.swift in Sources */,
 				822E986E2C54DE3400F42A9B /* TransportViewModel.swift in Sources */,
 				55F664782C5500A9005C6EF9 /* OvalButton.swift in Sources */,
+				822E988C2C54E87F00F42A9B /* LauncherModel.swift in Sources */,
 				822E98692C54DE0F00F42A9B /* SearchSpeechModal.swift in Sources */,
 				822E98402C54D67000F42A9B /* String+.swift in Sources */,
 				822E98422C54D67500F42A9B /* UIApplication+.swift in Sources */,
@@ -454,9 +495,12 @@
 				822E98522C54D84D00F42A9B /* LauncherHomeVC.swift in Sources */,
 				55F664762C54EE02005C6EF9 /* CircleFloatingButton.swift in Sources */,
 				822E983C2C54D62B00F42A9B /* UIView+.swift in Sources */,
+				822E98852C54E85A00F42A9B /* LauncherHomePaymnet.swift in Sources */,
+				822E98862C54E85A00F42A9B /* LauncherHomePromo.swift in Sources */,
 				55E6E5C62C54CA5200173EBA /* SceneDelegate.swift in Sources */,
 				822E98542C54D85400F42A9B /* LauncherHomeVM.swift in Sources */,
 				822E98562C54D87200F42A9B /* ViewController.swift in Sources */,
+				822E988D2C54E87F00F42A9B /* LauncherService.swift in Sources */,
 				822E984A2C54D69200F42A9B /* ApiRequest.swift in Sources */,
 				822E98282C54D0A200F42A9B /* SplashScreenViewController.swift in Sources */,
 			);
