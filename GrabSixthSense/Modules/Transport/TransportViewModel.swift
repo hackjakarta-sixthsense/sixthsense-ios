@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMaps
+import Combine
 
 class TransportViewModel: ViewModel {
     
@@ -18,8 +19,14 @@ class TransportViewModel: ViewModel {
     var originDegree: [CLLocationDegrees]?
     var destinationDegree: [CLLocationDegrees]?
     
+    var destinationSuggestionList: DestinationSuggestionResponse?
+//    var publishIsDestinationExist = CurrentValueSubject<Bool, Never>(true)
+    var publishIsDestinationExist = true
+    
     override init() {
         super.init()
+        
+//        subscribeTopublishIsDestinationExist()
         
         $apiState.sink { [weak self] state in
             guard let self = self else { return }
@@ -29,16 +36,55 @@ class TransportViewModel: ViewModel {
     
     func fetch(originPoint: String, destinationPoint: String) {
         mapsBounds = nil
+//        publishIsDestinationExist.send(true)
+        publishIsDestinationExist = true
         apiState = .loading
         let dispatchGroup = DispatchGroup()
         
         dispatchGroup.enter()
         TransportService.fetchMap(originPoint: originPoint, destinationPoint: destinationPoint) { [weak self] mapResponse in
+            guard let self = self, let mapResponse = mapResponse else { return }
+            let status = mapResponse["status"] as! String
+            if status == "OK" {
+                print("it is ok")
+                let routes = mapResponse["routes"] as! NSArray
+                self.createPolyline(with: routes)
+                self.getCoordinate(with: routes)
+            } else {
+                print("not ok")
+                publishIsDestinationExist = false
+            }
+            
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.notify(queue: .main) { [weak self] in
             guard let self = self else { return }
-            guard let mapResponse = mapResponse else { return }
-            let routes = mapResponse["routes"] as! NSArray
-            self.createPolyline(with: routes)
-            self.getCoordinate(with: routes)
+            if publishIsDestinationExist {
+                apiState = .success
+            } else {
+                apiState = .failure
+            }
+        }
+    }
+    
+//    private func subscribeTopublishIsDestinationExist() {
+//        publishIsDestinationExist.sink { [weak self] isExist in
+//            guard let self = self else { return }
+//            if !isExist {
+//                print("fetch new destination")
+//                self.fetchDestinationSuggestion(with: destination!)
+//            }
+//        }.store(in: &cancleableBag)
+//    }
+    
+    func fetchDestinationSuggestion() {
+        let dispatchGroup = DispatchGroup()
+        
+        dispatchGroup.enter()
+        TransportService.fetchSuggestionDestination(destination: destination!) { [weak self] suggestionList in
+            guard let suggestionList = suggestionList, let self = self else { return }
+            self.destinationSuggestionList = suggestionList
             dispatchGroup.leave()
         }
         
