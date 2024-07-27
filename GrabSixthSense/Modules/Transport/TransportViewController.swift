@@ -17,6 +17,10 @@ class TransportViewController: ViewController {
     private let bottomView = UIView()
     private let backButton = CircleFloatingButton()
     
+    private let bookButton = OvalButton()
+    private var bookButtonWidthAnchor: NSLayoutConstraint?
+    private let calendarButton = CircleFloatingButton()
+    
     init(viewModel: TransportViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -47,6 +51,8 @@ class TransportViewController: ViewController {
     
     private func setupBottomView() {
         bottomView.constraints(leading: backgroundView.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: backgroundView.trailingAnchor, height: .apply(contentSize: .actionBottomViewHeight))
+        bottomView.addSubviews([calendarButton, bookButton])
+        setupBottomSubview()
     }
     
     private func setupMapsView() {
@@ -60,6 +66,40 @@ class TransportViewController: ViewController {
         backButton.backgroundColor = .white
         backButton.tintColor = .black
         backButton.setImage(UIImage(systemName: "arrow.backward"), for: .normal)
+    }
+    
+    private func setupBottomSubview() {
+        setupCalendarButton()
+        setupBookButton()
+    }
+    
+    private func setupBookButton() {
+        bookButtonWidthAnchor = bookButton.widthAnchor.constraint(greaterThanOrEqualToConstant: .apply(contentSize: .buttonHeight))
+        bookButton.translatesAutoresizingMaskIntoConstraints = false
+        bookButton.constraints(
+            leading: calendarButton.trailingAnchor,
+            bottom: view.safeAreaLayoutGuide.bottomAnchor,
+            trailing: bottomView.trailingAnchor,
+            padding: .init(top: 0, left: .apply(insets: .xSmall), bottom: 0, right: .apply(insets: .medium)),
+            height: .apply(contentSize: .tabbarHeight),
+            customAnchors: [bookButtonWidthAnchor!])
+        
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.apply(.medium, size: .body),
+            .foregroundColor: UIColor.white
+        ]
+        let attributedTitle = NSAttributedString(string: "Book GrabCar", attributes: attributes)
+        bookButton.setAttributedTitle(attributedTitle, for: .normal)
+        bookButton.tintColor = .white
+        bookButton.backgroundColor = .systemGreen
+    }
+    
+    private func setupCalendarButton() {
+        calendarButton.translatesAutoresizingMaskIntoConstraints = false
+        calendarButton.constraints(leading: bottomView.leadingAnchor, centerY: (bookButton.centerYAnchor, 0), padding: .init(top: 0, left: .apply(insets: .medium), bottom: 0, right: 0), width: .apply(iconSize: .xLarge), height: .apply(iconSize: .xLarge))
+        calendarButton.tintColor = .darkGray
+        calendarButton.backgroundColor = .systemGray2
+        calendarButton.setImage(UIImage(systemName: "calendar"), for: .normal)
     }
     
 }
