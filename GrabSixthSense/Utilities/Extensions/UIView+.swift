@@ -55,4 +55,10 @@ extension UIView {
             NSLayoutConstraint.activate(customAnchors)
         }
     }
+    
+    func addSubviews(_ subview: [UIView]) {
+        subview.forEach { [weak self] childView in
+            self?.addSubview(childView)
+        }
+    }
 }

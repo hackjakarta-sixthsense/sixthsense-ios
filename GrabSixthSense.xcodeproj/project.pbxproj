@@ -10,6 +10,7 @@
 		55E6E5C42C54CA5200173EBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E6E5C32C54CA5200173EBA /* AppDelegate.swift */; };
 		55E6E5C62C54CA5200173EBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E6E5C52C54CA5200173EBA /* SceneDelegate.swift */; };
 		55E6E5CD2C54CA5400173EBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55E6E5CC2C54CA5400173EBA /* Assets.xcassets */; };
+		55F664762C54EE02005C6EF9 /* CircleFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F664752C54EE02005C6EF9 /* CircleFloatingButton.swift */; };
 		822E98282C54D0A200F42A9B /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E98272C54D0A200F42A9B /* SplashScreenViewController.swift */; };
 		822E982A2C54D0B200F42A9B /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E98292C54D0B200F42A9B /* SplashScreenViewModel.swift */; };
 		822E982D2C54D0BC00F42A9B /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E982C2C54D0BC00F42A9B /* MainCoordinator.swift */; };
@@ -53,6 +54,7 @@
 		55E6E5C52C54CA5200173EBA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		55E6E5CC2C54CA5400173EBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55E6E5D12C54CA5400173EBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55F664752C54EE02005C6EF9 /* CircleFloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleFloatingButton.swift; sourceTree = "<group>"; };
 		822E98272C54D0A200F42A9B /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		822E98292C54D0B200F42A9B /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
 		822E982C2C54D0BC00F42A9B /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -125,6 +127,14 @@
 				822E98312C54D0FE00F42A9B /* Utilities */,
 			);
 			path = GrabSixthSense;
+			sourceTree = "<group>";
+		};
+		55F664742C54EDF0005C6EF9 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				55F664752C54EE02005C6EF9 /* CircleFloatingButton.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		6BA8FE3A1B19AAEA941D1EAC /* Pods */ = {
@@ -280,6 +290,7 @@
 		822E986C2C54DE1A00F42A9B /* Transport */ = {
 			isa = PBXGroup;
 			children = (
+				55F664742C54EDF0005C6EF9 /* Component */,
 				822E986F2C54DE3B00F42A9B /* TransportViewController.swift */,
 				822E986D2C54DE3400F42A9B /* TransportViewModel.swift */,
 			);
@@ -478,6 +489,7 @@
 				822E98422C54D67500F42A9B /* UIApplication+.swift in Sources */,
 				822E98462C54D68000F42A9B /* UIFont+.swift in Sources */,
 				822E98522C54D84D00F42A9B /* LauncherHomeVC.swift in Sources */,
+				55F664762C54EE02005C6EF9 /* CircleFloatingButton.swift in Sources */,
 				822E983C2C54D62B00F42A9B /* UIView+.swift in Sources */,
 				822E98852C54E85A00F42A9B /* LauncherHomePaymnet.swift in Sources */,
 				822E98862C54E85A00F42A9B /* LauncherHomePromo.swift in Sources */,
