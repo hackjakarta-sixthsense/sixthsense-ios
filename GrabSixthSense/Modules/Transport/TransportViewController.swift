@@ -12,6 +12,9 @@ class TransportViewController: ViewController {
     
     private var viewModel: TransportViewModel
     
+    private let locationManager = CLLocationManager()
+    private var currentLocationDegrees: [CLLocationDegrees]?
+    
     private let backgroundView = UIView()
     private let mapView = GMSMapView()
     private let bottomView = UIView()
@@ -32,6 +35,7 @@ class TransportViewController: ViewController {
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
+        setupLocationManager()
         setupBackgroundView()
     }
     
@@ -108,6 +112,27 @@ extension TransportViewController {
     
     func assignState(state: ApiState) {
         
+    }
+    
+}
+
+extension TransportViewController: CLLocationManagerDelegate {
+    
+    private func setupLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            let currentLocation = location.coordinate
+            currentLocationDegrees = [currentLocation.latitude, currentLocation.longitude]
+            let point = String(currentLocation.latitude) + "," + String(currentLocation.longitude)
+            print("point: \(point)")
+            
+            locationManager.stopUpdatingLocation()
+        }
     }
     
 }

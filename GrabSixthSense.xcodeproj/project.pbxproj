@@ -597,6 +597,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GrabSixthSense/Utilities/Configurations/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Grab;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to show you nearby places.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -632,6 +633,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GrabSixthSense/Utilities/Configurations/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Grab;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to show you nearby places.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
