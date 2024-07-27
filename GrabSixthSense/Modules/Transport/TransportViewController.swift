@@ -5,7 +5,7 @@
 //  Created by Ardyan Atmojo on 27/07/24.
 //
 
-import Foundation
+import UIKit
 
 class TransportViewController: ViewController {
     private var viewModel: TransportViewModel
@@ -17,6 +17,10 @@ class TransportViewController: ViewController {
     
     required init?(coder: NSCoder) {
         fatalError()
+    }
+    
+    internal override func viewDidLoad() {
+        super.viewDidLoad()
     }
     
     func assignState(state: ApiState) {
