@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SplashScreenViewController: ViewController {
     
@@ -13,6 +14,7 @@ class SplashScreenViewController: ViewController {
     
     private let logoIV = UIImageView()
     private let illustrationIV = UIImageView()
+    private let locationManager = CLLocationManager()
     
     init(viewModel: SplashScreenViewModel) {
         self.viewModel = viewModel
@@ -23,6 +25,7 @@ class SplashScreenViewController: ViewController {
     
     internal override func viewDidLoad() {
         super.viewDidLoad()
+        setupLocation()
         
         view.backgroundColor = .accent
         
@@ -57,4 +60,12 @@ extension SplashScreenViewController {
         default: break
         }
     }
+}
+
+extension SplashScreenViewController: CLLocationManagerDelegate {
+    
+    private func setupLocation() {
+        locationManager.requestWhenInUseAuthorization()
+    }
+    
 }

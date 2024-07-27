@@ -29,6 +29,6 @@ class SplashScreenViewModel: ViewModel {
     }
     
     func navigateToHome() {
-        coordinator?.navigateToHome()
+        coordinator?.navigateToMaps(destination: "Bundaran%20HI")
     }
 }

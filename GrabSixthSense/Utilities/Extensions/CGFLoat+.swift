@@ -31,6 +31,7 @@ extension CGFloat {
         case body = 24
         case medium = 30
         case large = 40
+        case xLarge = 48
     }
     
     static func apply(iconSize size: IconSize) -> CGFloat {

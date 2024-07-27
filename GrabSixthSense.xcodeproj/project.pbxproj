@@ -11,6 +11,8 @@
 		55E6E5C62C54CA5200173EBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E6E5C52C54CA5200173EBA /* SceneDelegate.swift */; };
 		55E6E5CD2C54CA5400173EBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55E6E5CC2C54CA5400173EBA /* Assets.xcassets */; };
 		55F664762C54EE02005C6EF9 /* CircleFloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F664752C54EE02005C6EF9 /* CircleFloatingButton.swift */; };
+		55F664782C5500A9005C6EF9 /* OvalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F664772C5500A9005C6EF9 /* OvalButton.swift */; };
+		55F6647B2C553604005C6EF9 /* TransportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F6647A2C553604005C6EF9 /* TransportService.swift */; };
 		822E98282C54D0A200F42A9B /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E98272C54D0A200F42A9B /* SplashScreenViewController.swift */; };
 		822E982A2C54D0B200F42A9B /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E98292C54D0B200F42A9B /* SplashScreenViewModel.swift */; };
 		822E982D2C54D0BC00F42A9B /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E982C2C54D0BC00F42A9B /* MainCoordinator.swift */; };
@@ -55,6 +57,8 @@
 		55E6E5CC2C54CA5400173EBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55E6E5D12C54CA5400173EBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55F664752C54EE02005C6EF9 /* CircleFloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleFloatingButton.swift; sourceTree = "<group>"; };
+		55F664772C5500A9005C6EF9 /* OvalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalButton.swift; sourceTree = "<group>"; };
+		55F6647A2C553604005C6EF9 /* TransportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportService.swift; sourceTree = "<group>"; };
 		822E98272C54D0A200F42A9B /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		822E98292C54D0B200F42A9B /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
 		822E982C2C54D0BC00F42A9B /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -133,8 +137,17 @@
 			isa = PBXGroup;
 			children = (
 				55F664752C54EE02005C6EF9 /* CircleFloatingButton.swift */,
+				55F664772C5500A9005C6EF9 /* OvalButton.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		55F664792C5535E1005C6EF9 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				55F6647A2C553604005C6EF9 /* TransportService.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		6BA8FE3A1B19AAEA941D1EAC /* Pods */ = {
@@ -290,6 +303,7 @@
 		822E986C2C54DE1A00F42A9B /* Transport */ = {
 			isa = PBXGroup;
 			children = (
+				55F664792C5535E1005C6EF9 /* Repository */,
 				55F664742C54EDF0005C6EF9 /* Component */,
 				822E986F2C54DE3B00F42A9B /* TransportViewController.swift */,
 				822E986D2C54DE3400F42A9B /* TransportViewModel.swift */,
@@ -483,6 +497,7 @@
 				822E98442C54D67A00F42A9B /* UIButton+.swift in Sources */,
 				822E984E2C54D79000F42A9B /* ViewModel.swift in Sources */,
 				822E986E2C54DE3400F42A9B /* TransportViewModel.swift in Sources */,
+				55F664782C5500A9005C6EF9 /* OvalButton.swift in Sources */,
 				822E988C2C54E87F00F42A9B /* LauncherModel.swift in Sources */,
 				822E98692C54DE0F00F42A9B /* SearchSpeechModal.swift in Sources */,
 				822E98402C54D67000F42A9B /* String+.swift in Sources */,
@@ -499,6 +514,7 @@
 				822E988D2C54E87F00F42A9B /* LauncherService.swift in Sources */,
 				822E984A2C54D69200F42A9B /* ApiRequest.swift in Sources */,
 				822E98282C54D0A200F42A9B /* SplashScreenViewController.swift in Sources */,
+				55F6647B2C553604005C6EF9 /* TransportService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,11 +648,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YK5ZVP869F;
+				DEVELOPMENT_TEAM = 67Y666X7TJ;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GrabSixthSense/Utilities/Configurations/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Grab;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to show you nearby places.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -647,7 +664,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.grab.voiceInput;
+				PRODUCT_BUNDLE_IDENTIFIER = com.grab.sixthsense;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -667,11 +684,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YK5ZVP869F;
+				DEVELOPMENT_TEAM = 67Y666X7TJ;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GrabSixthSense/Utilities/Configurations/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Grab;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to show you nearby places.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -682,7 +700,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.grab.voiceInput;
+				PRODUCT_BUNDLE_IDENTIFIER = com.grab.sixthsense;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
