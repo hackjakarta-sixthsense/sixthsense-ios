@@ -177,6 +177,7 @@ extension TransportViewController {
         addMapMarker(originPoint: viewModel.originDegree ?? [CLLocationDegrees](), destinationPoint: viewModel.destinationDegree ?? [CLLocationDegrees]())
         mapsBoundSetter()
         updateMapsView(mapsPath: viewModel.mapsBounds ?? GMSPath())
+        labelOption.text = viewModel.tripFare ?? ""
     }
     
     private func addMapMarker(originPoint: [CLLocationDegrees], destinationPoint: [CLLocationDegrees]) {

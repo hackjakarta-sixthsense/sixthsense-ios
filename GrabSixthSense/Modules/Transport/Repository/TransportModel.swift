@@ -41,3 +41,19 @@ struct Location: Decodable {
         case lng = "lng"
     }
 }
+
+struct DistanceMatrixResponse: Decodable {
+    let rows: [Row]
+}
+
+struct Row: Decodable {
+    let elements: [Element]
+}
+
+struct Element: Decodable {
+    let distance: Distance
+}
+
+struct Distance: Decodable {
+    let value: Int
+}

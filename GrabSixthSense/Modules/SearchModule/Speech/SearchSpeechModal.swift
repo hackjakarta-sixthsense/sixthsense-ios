@@ -160,3 +160,11 @@ class SearchSpeechModal: ViewController {
     }
 
 }
+
+extension SearchSpeechModal {
+    
+    func assignState(with: ApiState) {
+        
+    }
+    
+}
