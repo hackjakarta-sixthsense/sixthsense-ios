@@ -1,5 +1,5 @@
 //
-//  LauncherHomePaymnet.swift
+//  LauncherHomePayment.swift
 //  GrabClone
 //
 //  Created by Ardyan Atmojo on 23/07/24.
@@ -8,7 +8,7 @@
 import UIKit
 import SkeletonView
 
-class LauncherHomePaymnet: UICollectionView,
+class LauncherHomePayment: UICollectionView,
     UICollectionViewDelegateFlowLayout,
     SkeletonCollectionViewDataSource {
     
@@ -85,9 +85,7 @@ class LauncherHomePaymnet: UICollectionView,
             layer.masksToBounds = true
             isSkeletonable = true
             
-            [labelVSV, contentIV].forEach { [weak self] view in
-                self?.contentView.addSubview(view)
-            }
+            contentView.addSubviews([labelVSV, contentIV])
             
             labelVSV.axis = .vertical
             labelVSV.spacing = .apply(insets: .xSmall)
@@ -97,9 +95,7 @@ class LauncherHomePaymnet: UICollectionView,
                     top: 0, left: .apply(insets: .body),
                     bottom: 0, right: .apply(insets: .small)))
             
-            [captionLabel, titleLabel].forEach { [weak self] view in
-                self?.labelVSV.addArrangedSubview(view)
-            }
+            labelVSV.addArrangedSubviews([captionLabel, titleLabel])
             
             captionLabel.font = .apply(.regular, size: .subhead)
             

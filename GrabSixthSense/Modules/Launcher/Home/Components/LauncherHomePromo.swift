@@ -23,9 +23,7 @@ class LauncherHomePromo: UIView,
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        [titleLabel, collectionView].forEach { [weak self] view in
-            self?.addSubview(view)
-        }
+        addSubviews([titleLabel, collectionView])
         
         titleLabel.font = .apply(.medium, size: .body)
         titleLabel.linesCornerRadius = 6
@@ -120,9 +118,7 @@ class LauncherHomePromo: UIView,
             isSkeletonable = true
             contentView.isSkeletonable = true
             
-            [contentIV, titleLabel, calendarHSV].forEach { [weak self] view in
-                self?.contentView.addSubview(view)
-            }
+            contentView.addSubviews([contentIV, titleLabel, calendarHSV])
             
             contentIV.contentMode = .scaleAspectFill
             contentIV.clipsToBounds = true
@@ -152,9 +148,7 @@ class LauncherHomePromo: UIView,
                     top: .apply(insets: .smallest), left: 0, bottom: 0, right: 0
                 ), height: .apply(iconSize: .smallest))
             
-            [dateIV, dateLabel].forEach { [weak self] view in
-                self?.calendarHSV.addArrangedSubview(view)
-            }
+            calendarHSV.addArrangedSubviews([dateIV, dateLabel])
             
             dateIV.image = .init(systemName: "calendar")?
                 .withRenderingMode(.alwaysTemplate)

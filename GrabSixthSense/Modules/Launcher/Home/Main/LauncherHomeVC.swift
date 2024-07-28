@@ -16,7 +16,7 @@ class LauncherHomeVC: ViewController {
     private let contentView = UIView()
     private let searchBar = SearchTextField()
     private let menuSection = LauncherHomeMenu()
-    private let paymentSection = LauncherHomePaymnet()
+    private let paymentSection = LauncherHomePayment()
     private let promoSection = LauncherHomePromo()
     
     init(viewModel: LauncherHomeVM) {
@@ -29,8 +29,7 @@ class LauncherHomeVC: ViewController {
     internal override func viewDidLoad() {
         super.viewDidLoad()
         
-        [backgroundView, scrollView].forEach { [weak self] view in
-            self?.view.addSubview(view) }
+        view.addSubviews([backgroundView, scrollView])
         
         backgroundView.backgroundColor = .accent
         backgroundView.constraints(
@@ -54,8 +53,7 @@ class LauncherHomeVC: ViewController {
             width: .apply(currentDevice: .screenWidth), height: 1000
         )
         
-        [searchBar, menuSection, paymentSection, promoSection].forEach { [weak self] view in
-            self?.contentView.addSubview(view) }
+        contentView.addSubviews([searchBar, menuSection, paymentSection, promoSection])
         
         searchBar.micAction = { [weak self] in
             self?.viewModel.presentModalVoice() }
@@ -156,9 +154,7 @@ extension LauncherHomeVC: UIScrollViewDelegate {
             font = .apply(.regular, size: .body)
             placeholder = "Typing something here.."
             
-            [searchIV, micIconView, vLineSeparator, scanQRIV].forEach { [weak self] view in
-                self?.addSubview(view)
-            }
+            addSubviews([searchIV, micIconView, vLineSeparator, scanQRIV])
             
             searchIV.image = .init(systemName: "magnifyingglass")?
                 .withRenderingMode(.alwaysTemplate)

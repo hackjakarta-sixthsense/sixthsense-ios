@@ -14,7 +14,7 @@ class TransportViewModel: ViewModel {
     var coordinator: MainCoordinator?
     weak var view: TransportViewController?
     
-    var destination: String?
+    var destinationData: SearchResponse?
     var mapsBounds: GMSPath?
     var originDegree: [CLLocationDegrees]?
     var destinationDegree: [CLLocationDegrees]?
@@ -24,6 +24,24 @@ class TransportViewModel: ViewModel {
     
     var destinationSuggestionList: DestinationSuggestionResponse?
     var publishIsDestinationExist = true
+    
+    var typeResponse: Transport.TypeResponse?
+    
+    let bottomViewHeight: CGFloat = {
+        let currentHeight: CGFloat = .apply(contentSize: .smallRectHeight) +
+            .apply(contentSize: .buttonHeight) + .apply(contentSize: .largeRectHeight) * 2
+        
+        if !CGFloat.apply(currentDevice: .bottomSafeAreaHeight).isZero {
+            return currentHeight + .apply(currentDevice: .bottomSafeAreaHeight)
+        } else {
+            return currentHeight + .apply(insets: .medium)
+        }
+    }()
+    
+    let bottomPadding: CGFloat = {
+        return !CGFloat.apply(currentDevice: .bottomSafeAreaHeight).isZero
+            ? .zero : .apply(insets: .medium)
+    }()
     
     override init() {
         super.init()
@@ -41,9 +59,11 @@ class TransportViewModel: ViewModel {
         let dispatchGroup = DispatchGroup()
         
         dispatchGroup.enter()
-        TransportService.fetchMap(originPoint: originPoint, destinationPoint: destinationPoint) { [weak self] mapResponse in
+        TransportService.fetchMap(originPoint: originPoint, destinationPoint: destinationPoint) { [weak self]
+            mapResponse in
             guard let self = self, let mapResponse = mapResponse else { return }
             let status = mapResponse["status"] as! String
+            print(destinationPoint)
             if status == "OK" {
                 print("it is ok")
                 let routes = mapResponse["routes"] as! NSArray
@@ -66,13 +86,18 @@ class TransportViewModel: ViewModel {
                 apiState = .failure
             }
         }
+        
+        typeResponse = .init(listType: [
+            .init(icon: "IconTransportBike", title: "GrabBike", estimateTime: "3", price: "Rp43.000"),
+            .init(icon: "IconTransportCar", title: "GrabCar", estimateTime: "7", price: "Rp75.000"),
+        ])
     }
     
     func fetchDestinationSuggestion() {
         let dispatchGroup = DispatchGroup()
         
         dispatchGroup.enter()
-        TransportService.fetchSuggestionDestination(destination: destination!) { [weak self] suggestionList in
+        TransportService.fetchSuggestionDestination(destination: destinationData?.valueRegex ?? "") { [weak self] suggestionList in
             guard let suggestionList = suggestionList, let self = self else { return }
             self.destinationSuggestionList = suggestionList
             dispatchGroup.leave()
@@ -93,9 +118,7 @@ class TransportViewModel: ViewModel {
     }
     
     private func getCoordinate(with routes: NSArray) {
-        var pathArray = [GMSPath]()
         let legs: NSArray = (routes[0] as! NSDictionary).value(forKey: "legs") as! NSArray
-        let steps: NSArray = (legs[0] as! NSDictionary).value(forKey: "steps") as! NSArray
         
         let startLocation: NSDictionary = (legs[0] as! NSDictionary).value(forKey: "start_location") as! NSDictionary
         let endLocation: NSDictionary = (legs[0] as! NSDictionary).value(forKey: "end_location") as! NSDictionary

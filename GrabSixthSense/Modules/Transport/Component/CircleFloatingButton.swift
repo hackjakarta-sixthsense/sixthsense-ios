@@ -26,5 +26,4 @@ class CircleFloatingButton: UIButton {
     private func setupButton() {
         layer.masksToBounds = true
     }
-    
 }

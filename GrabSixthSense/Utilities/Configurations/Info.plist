@@ -27,10 +27,10 @@
 			<key>UIWindowSceneSessionRoleApplication</key>
 			<array>
 				<dict>
-					<key>UISceneDelegateClassName</key>
-					<string>$(PRODUCT_NAME).SceneDelegate</string>
 					<key>UISceneConfigurationName</key>
 					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_NAME).SceneDelegate</string>
 				</dict>
 			</array>
 		</dict>

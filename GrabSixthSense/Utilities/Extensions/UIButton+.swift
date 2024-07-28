@@ -14,4 +14,8 @@ extension UIButton {
         contentMode = .scaleAspectFit
         tintColor = .black
     }
+    
+    func setTitleFont(_ font: UIFont) {
+        titleLabel?.font = font
+    }
 }

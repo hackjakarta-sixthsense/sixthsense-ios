@@ -11,7 +11,8 @@ import Foundation
 struct SearchSpeechService {
     
     static func fetchSearchResult(requestPrompt: String, callback: @escaping (SearchResponse?) -> ()) {
-        let urlString = "http://34.128.71.244:8080/search"
+        
+        let urlString = Endpoints.searchPrompt.url()
         let url = URL(string: urlString)
         
         var request = URLRequest(url: url!)

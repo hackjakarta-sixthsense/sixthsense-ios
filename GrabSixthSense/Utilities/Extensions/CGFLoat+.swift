@@ -39,6 +39,7 @@ extension CGFloat {
     }
     
     enum ContentSize: CGFloat {
+        case smallRectHeight = 36
         case rectHeight = 56
         case largeRectHeight = 76
         case buttonHeight = 48

@@ -57,3 +57,17 @@ struct Element: Decodable {
 struct Distance: Decodable {
     let value: Int
 }
+
+struct Transport {
+    
+    struct TypeResponse: Decodable {
+        var listType: [Payload?]?
+        
+        struct Payload: Decodable {
+            var icon: String?
+            var title: String?
+            var estimateTime: String?
+            var price: String?
+        }
+    }
+}

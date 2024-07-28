@@ -23,7 +23,7 @@ class SplashScreenViewModel: ViewModel {
     func fetch() {
         apiState = .loading
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
             self?.apiState = .success
         }
     }
@@ -31,6 +31,6 @@ class SplashScreenViewModel: ViewModel {
     func navigateToHome() {
         coordinator?.navigateToHome()
 //        coordinator?.navigateToMaps(destination: "Bundaran HI")
-        coordinator?.navigateToMaps(destination: "Grand%20Indonesia")
+//        coordinator?.navigateToMaps(destination: "Grand%20Indonesia")
     }
 }

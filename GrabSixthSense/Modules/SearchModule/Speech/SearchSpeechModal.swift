@@ -22,6 +22,8 @@ class SearchSpeechModal: ViewController {
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
     
+    private var inputAudiostring: String?
+    
     init(viewModel: SearchSpeechViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -52,6 +54,7 @@ class SearchSpeechModal: ViewController {
             trailing: view.trailingAnchor, padding: .init(
                 top: .apply(insets: .medium), left: .apply(insets: .medium),
                 bottom: 0, right: .apply(insets: .medium)))
+        speechLabel.textColor = .black
         
         speechFrame.layer.cornerRadius = 50
         speechFrame.backgroundColor = .lightGray
@@ -87,6 +90,7 @@ class SearchSpeechModal: ViewController {
     @objc private func handleMic(_ sender: UITapGestureRecognizer?) {
         if audioEngine.isRunning {
             stopRecording()
+            viewModel.fetch(prompt: inputAudiostring ?? "")
         } else {
             startRecording()
         }
@@ -117,13 +121,15 @@ class SearchSpeechModal: ViewController {
         recognitionRequest.shouldReportPartialResults = true
         
         recognitionTask = speechRecognizer.recognitionTask(
-            with: recognitionRequest, resultHandler: { result, error in
+            with: recognitionRequest, resultHandler: { [weak self] result, error in
+                guard let self = self else { return }
                 var isFinal = false
                 
                 if let result = result {
                     self.speechLabel.text = result
                         .bestTranscription.formattedString
                     isFinal = result.isFinal
+                    self.inputAudiostring = result.bestTranscription.formattedString
                 }
                 
                 if error != nil || isFinal {
@@ -163,8 +169,10 @@ class SearchSpeechModal: ViewController {
 
 extension SearchSpeechModal {
     
-    func assignState(with: ApiState) {
-        
+    func assignState(state: ApiState) {
+        switch state {
+        case .success: viewModel.dismissWithData()
+        default: break
+        }
     }
-    
 }

@@ -12,6 +12,7 @@ enum Endpoints: String {
     case homeListMenu = "/list/menu"
     case homeListPayment = "/list/payment"
     case homeListPromo = "/list/promo"
+    case searchPrompt = "/search/prompt"
     
     func url() -> String {
         let baseURL = Bundle.main.object(forInfoDictionaryKey: Keys.baseURL.rawValue)

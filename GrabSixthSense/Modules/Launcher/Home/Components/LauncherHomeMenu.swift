@@ -102,12 +102,8 @@ class LauncherHomeMenu: UICollectionView,
                 centerX: (centerXAnchor, 0),
                 centerY: (centerYAnchor, 0))
             
-            [contentIV, titleLabel]
-                .forEach { [weak self] view in
-                    self?.contentVSV.addArrangedSubview(view)
-                }
+            contentVSV.addArrangedSubviews([contentIV, titleLabel])
             
-            contentIV.image = .apply(assets: .iconHomeFood)
             contentIV.contentMode = .scaleAspectFill
             contentIV.isSkeletonable = true
             contentIV.skeletonCornerRadius = 12

@@ -44,7 +44,7 @@
 		822E98772C54E3E200F42A9B /* SanomatSans-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 822E98732C54E3E200F42A9B /* SanomatSans-Bold.otf */; };
 		822E98782C54E3E200F42A9B /* SanomatSans-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 822E98742C54E3E200F42A9B /* SanomatSans-Light.otf */; };
 		822E98842C54E85A00F42A9B /* LauncherHomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E98812C54E85A00F42A9B /* LauncherHomeMenu.swift */; };
-		822E98852C54E85A00F42A9B /* LauncherHomePaymnet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E98822C54E85A00F42A9B /* LauncherHomePaymnet.swift */; };
+		822E98852C54E85A00F42A9B /* LauncherHomePayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E98822C54E85A00F42A9B /* LauncherHomePayment.swift */; };
 		822E98862C54E85A00F42A9B /* LauncherHomePromo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E98832C54E85A00F42A9B /* LauncherHomePromo.swift */; };
 		822E988C2C54E87F00F42A9B /* LauncherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E988A2C54E87F00F42A9B /* LauncherModel.swift */; };
 		822E988D2C54E87F00F42A9B /* LauncherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E988B2C54E87F00F42A9B /* LauncherService.swift */; };
@@ -52,6 +52,7 @@
 		822E98912C555F7A00F42A9B /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E98902C555F7A00F42A9B /* UIImageView+.swift */; };
 		822E98952C556E6E00F42A9B /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E98942C556E6E00F42A9B /* Encodable+.swift */; };
 		822E98992C5578C400F42A9B /* CustomURLEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E98982C5578C400F42A9B /* CustomURLEncoding.swift */; };
+		822E989B2C55E1A700F42A9B /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E989A2C55E1A700F42A9B /* UIStackView+.swift */; };
 		D897610DF08CC6C0C1FE32F9 /* Pods_GrabSixthSense.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F64532347B6AF1456AD5D6A /* Pods_GrabSixthSense.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,7 +98,7 @@
 		822E98732C54E3E200F42A9B /* SanomatSans-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanomatSans-Bold.otf"; sourceTree = "<group>"; };
 		822E98742C54E3E200F42A9B /* SanomatSans-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SanomatSans-Light.otf"; sourceTree = "<group>"; };
 		822E98812C54E85A00F42A9B /* LauncherHomeMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LauncherHomeMenu.swift; sourceTree = "<group>"; };
-		822E98822C54E85A00F42A9B /* LauncherHomePaymnet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LauncherHomePaymnet.swift; sourceTree = "<group>"; };
+		822E98822C54E85A00F42A9B /* LauncherHomePayment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LauncherHomePayment.swift; sourceTree = "<group>"; };
 		822E98832C54E85A00F42A9B /* LauncherHomePromo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LauncherHomePromo.swift; sourceTree = "<group>"; };
 		822E988A2C54E87F00F42A9B /* LauncherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LauncherModel.swift; sourceTree = "<group>"; };
 		822E988B2C54E87F00F42A9B /* LauncherService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LauncherService.swift; sourceTree = "<group>"; };
@@ -105,6 +106,7 @@
 		822E98902C555F7A00F42A9B /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		822E98942C556E6E00F42A9B /* Encodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
 		822E98982C5578C400F42A9B /* CustomURLEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomURLEncoding.swift; sourceTree = "<group>"; };
+		822E989A2C55E1A700F42A9B /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		BB50C696E3C90E36A8A91F32 /* Pods-GrabSixthSense.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrabSixthSense.release.xcconfig"; path = "Target Support Files/Pods-GrabSixthSense/Pods-GrabSixthSense.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -289,6 +291,7 @@
 				822E983B2C54D62B00F42A9B /* UIView+.swift */,
 				822E98902C555F7A00F42A9B /* UIImageView+.swift */,
 				822E98942C556E6E00F42A9B /* Encodable+.swift */,
+				822E989A2C55E1A700F42A9B /* UIStackView+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -353,7 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				822E98812C54E85A00F42A9B /* LauncherHomeMenu.swift */,
-				822E98822C54E85A00F42A9B /* LauncherHomePaymnet.swift */,
+				822E98822C54E85A00F42A9B /* LauncherHomePayment.swift */,
 				822E98832C54E85A00F42A9B /* LauncherHomePromo.swift */,
 			);
 			path = Components;
@@ -513,6 +516,7 @@
 			files = (
 				822E98482C54D68B00F42A9B /* BaseResponse.swift in Sources */,
 				822E988F2C554C2600F42A9B /* Keys.swift in Sources */,
+				822E989B2C55E1A700F42A9B /* UIStackView+.swift in Sources */,
 				55F664852C55CE4B005C6EF9 /* SearchSpeechModel.swift in Sources */,
 				822E98702C54DE3B00F42A9B /* TransportViewController.swift in Sources */,
 				822E982A2C54D0B200F42A9B /* SplashScreenViewModel.swift in Sources */,
@@ -540,7 +544,7 @@
 				822E98522C54D84D00F42A9B /* LauncherHomeVC.swift in Sources */,
 				55F664762C54EE02005C6EF9 /* CircleFloatingButton.swift in Sources */,
 				822E983C2C54D62B00F42A9B /* UIView+.swift in Sources */,
-				822E98852C54E85A00F42A9B /* LauncherHomePaymnet.swift in Sources */,
+				822E98852C54E85A00F42A9B /* LauncherHomePayment.swift in Sources */,
 				822E98952C556E6E00F42A9B /* Encodable+.swift in Sources */,
 				822E98862C54E85A00F42A9B /* LauncherHomePromo.swift in Sources */,
 				55E6E5C62C54CA5200173EBA /* SceneDelegate.swift in Sources */,
@@ -685,24 +689,28 @@
 				BASE_URL = "http://34.101.37.71:8080";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 67Y666X7TJ;
+				DEVELOPMENT_TEAM = YK5ZVP869F;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				GMAPS_URL = "https://maps.googleapis.com/maps/api/directions/json";
 				INFOPLIST_FILE = GrabSixthSense/Utilities/Configurations/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Grab;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Please allow access to open the app";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to show you nearby places.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Please allow access to open the app";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Please allow access to open the app";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.grab.sixthsense;
+				PRODUCT_BUNDLE_IDENTIFIER = com.grab.improveVoice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -723,24 +731,28 @@
 				BASE_URL = "http://34.101.37.71:8080";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 67Y666X7TJ;
+				DEVELOPMENT_TEAM = YK5ZVP869F;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				GMAPS_URL = "https://maps.googleapis.com/maps/api/directions/json";
 				INFOPLIST_FILE = GrabSixthSense/Utilities/Configurations/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Grab;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Please allow access to open the app";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to show you nearby places.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Please allow access to open the app";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Please allow access to open the app";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.grab.sixthsense;
+				PRODUCT_BUNDLE_IDENTIFIER = com.grab.improveVoice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

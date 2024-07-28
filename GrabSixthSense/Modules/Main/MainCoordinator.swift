@@ -37,15 +37,18 @@ struct MainCoordinator: Coordinator {
         let view = SearchSpeechModal(viewModel: viewModel)
         viewModel.coordinator = self
         viewModel.view = view
+        viewModel.onSearchResponseReceived = {
+            self.navigateToMaps(data: $0)
+        }
         navigation.present(view, animated: true)
     }
 
-    func navigateToMaps(destination: String) {
+    func navigateToMaps(data: SearchResponse?) {
         let viewModel = TransportViewModel()
         let view = TransportViewController(viewModel: viewModel)
         viewModel.coordinator = self
         viewModel.view = view
-        viewModel.destination = destination
+        viewModel.destinationData = data
         navigation.pushViewController(view, animated: true)
     }
 }

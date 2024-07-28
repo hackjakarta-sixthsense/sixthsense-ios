@@ -56,8 +56,8 @@ extension UIView {
         }
     }
     
-    func addSubviews(_ subview: [UIView]) {
-        subview.forEach { [weak self] childView in
+    func addSubviews(_ views: [UIView]) {
+        views.forEach { [weak self] childView in
             self?.addSubview(childView)
         }
     }
