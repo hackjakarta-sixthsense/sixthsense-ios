@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMaps
+import Combine
 
 class TransportViewModel: ViewModel {
     
@@ -17,6 +18,12 @@ class TransportViewModel: ViewModel {
     var mapsBounds: GMSPath?
     var originDegree: [CLLocationDegrees]?
     var destinationDegree: [CLLocationDegrees]?
+    
+    var tripFare: String?
+    var tripDuration: Int?
+    
+    var destinationSuggestionList: DestinationSuggestionResponse?
+    var publishIsDestinationExist = true
     
     override init() {
         super.init()
@@ -29,18 +36,49 @@ class TransportViewModel: ViewModel {
     
     func fetch(originPoint: String, destinationPoint: String) {
         mapsBounds = nil
+        publishIsDestinationExist = true
         apiState = .loading
         let dispatchGroup = DispatchGroup()
         
         dispatchGroup.enter()
         TransportService.fetchMap(originPoint: originPoint, destinationPoint: destinationPoint) { [weak self] mapResponse in
-            guard let self = self else { return }
-            guard let mapResponse = mapResponse else { return }
-            let routes = mapResponse["routes"] as! NSArray
-            self.createPolyline(with: routes)
-            self.getCoordinate(with: routes)
+            guard let self = self, let mapResponse = mapResponse else { return }
+            let status = mapResponse["status"] as! String
+            if status == "OK" {
+                print("it is ok")
+                let routes = mapResponse["routes"] as! NSArray
+                self.createPolyline(with: routes)
+                self.getCoordinate(with: routes)
+                self.getDistance(with: routes)
+            } else {
+                print("not ok")
+                publishIsDestinationExist = false
+            }
+            
             dispatchGroup.leave()
         }
+        
+        dispatchGroup.notify(queue: .main) { [weak self] in
+            guard let self = self else { return }
+            if publishIsDestinationExist {
+                apiState = .success
+            } else {
+                apiState = .failure
+            }
+        }
+    }
+    
+    func fetchDestinationSuggestion() {
+        let dispatchGroup = DispatchGroup()
+        
+        dispatchGroup.enter()
+        TransportService.fetchSuggestionDestination(destination: destination!) { [weak self] suggestionList in
+            guard let suggestionList = suggestionList, let self = self else { return }
+            self.destinationSuggestionList = suggestionList
+            dispatchGroup.leave()
+        }
+        
+        dispatchGroup.enter()
         
         dispatchGroup.notify(queue: .main) { [weak self] in
             guard let self = self else { return }
@@ -54,7 +92,7 @@ class TransportViewModel: ViewModel {
         mapsBounds = GMSPath.init(fromEncodedPath: points! as! String) ?? GMSPath()
     }
     
-    func getCoordinate(with routes: NSArray) {
+    private func getCoordinate(with routes: NSArray) {
         var pathArray = [GMSPath]()
         let legs: NSArray = (routes[0] as! NSDictionary).value(forKey: "legs") as! NSArray
         let steps: NSArray = (legs[0] as! NSDictionary).value(forKey: "steps") as! NSArray
@@ -70,6 +108,41 @@ class TransportViewModel: ViewModel {
         
         originDegree = [originLatitudeCoordinate, originLongitudeCoordinate]
         destinationDegree = [destinationLatitudeCoordinate, destinationLongitudeCoordinate]
+    }
+    
+    func getDistance(with routes: NSArray) {
+        let legs: NSArray = (routes[0] as! NSDictionary).value(forKey: "legs") as! NSArray
+        let distanceData = (legs[0] as! NSDictionary).value(forKey: "distance") as! NSDictionary
+        let durationData = (legs[0] as! NSDictionary).value(forKey: "duration") as! NSDictionary
+        let distanceInMeter = distanceData.object(forKey: "value") as! Int
+        let durationInSeconds = durationData.object(forKey: "value") as! Int
+        
+        tripFare = fareCalculation(distance: distanceInMeter)
+        tripDuration = durationInSeconds
+    }
+    
+    func fareCalculation(distance: Int) -> String {
+        let baseFare = 10000.0 // Base fare in Rupiah
+        let farePerKm = 5000.0 // Fare per kilometer in Rupiah
+            
+        let distanceInKm = Double(distance) / 1000.0
+        let fare = baseFare + (farePerKm * distanceInKm)
+            
+        return formatToRupiah(fare)
+    }
+    
+    func formatToRupiah(_ amount: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale(identifier: "id_ID")
+        formatter.currencySymbol = "Rp"
+        formatter.maximumFractionDigits = 0
+        
+        if let formattedAmount = formatter.string(from: NSNumber(value: amount)) {
+            return formattedAmount
+        } else {
+            return "Rp \(amount)"
+        }
     }
     
 }

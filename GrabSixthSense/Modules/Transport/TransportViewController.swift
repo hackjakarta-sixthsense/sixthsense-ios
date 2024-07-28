@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMaps
+import AVFoundation
 
 class TransportViewController: ViewController {
     
@@ -23,6 +24,11 @@ class TransportViewController: ViewController {
     private let bookButton = OvalButton()
     private var bookButtonWidthAnchor: NSLayoutConstraint?
     private let calendarButton = CircleFloatingButton()
+    private let labelOption = UILabel()
+    
+    private let synthesizer = AVSpeechSynthesizer()
+    
+    private var currentLocationCoordinate: String?
     
     init(viewModel: TransportViewModel) {
         self.viewModel = viewModel
@@ -59,7 +65,7 @@ class TransportViewController: ViewController {
     
     private func setupBottomView() {
         bottomView.constraints(leading: backgroundView.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: backgroundView.trailingAnchor, height: .apply(contentSize: .actionBottomViewHeight))
-        bottomView.addSubviews([calendarButton, bookButton])
+        bottomView.addSubviews([calendarButton, bookButton, labelOption])
         setupBottomSubview()
     }
     
@@ -79,6 +85,7 @@ class TransportViewController: ViewController {
     private func setupBottomSubview() {
         setupCalendarButton()
         setupBookButton()
+        setupLabelOption()
     }
     
     private func setupBookButton() {
@@ -108,6 +115,13 @@ class TransportViewController: ViewController {
         calendarButton.tintColor = .darkGray
         calendarButton.backgroundColor = .systemGray2
         calendarButton.setImage(UIImage(systemName: "calendar"), for: .normal)
+        calendarButton.addTarget(self, action: #selector(handleCalendarButton), for: .touchUpInside)
+    }
+    
+    private func setupLabelOption() {
+        labelOption.constraints(top: bottomView.topAnchor, leading: bottomView.leadingAnchor, bottom: bookButton.topAnchor, trailing: bottomView.trailingAnchor, padding: .init(top: .apply(insets: .medium), left: .apply(insets: .medium), bottom: .apply(insets: .medium), right: .apply(insets: .medium)))
+        labelOption.text = "Data result"
+        labelOption.textColor = .black
     }
     
 }
@@ -119,19 +133,51 @@ extension TransportViewController {
         case .loading:
             print("fetch state")
         case .success:
-            updateMaps()
+            if !viewModel.publishIsDestinationExist {
+                print("data suggestion from vm: \(String(describing: viewModel.destinationSuggestionList))")
+                if let address = viewModel.destinationSuggestionList?.results?[0].formattedAddress {
+                    speakSuggestion([address])
+                    updateLabelDestinationSuggestion(suggestion: address)
+                }
+            } else {
+                updateMaps()
+            }
+        case .failure:
+            viewModel.fetchDestinationSuggestion()
         default: break
         }
+    }
+    
+    func speakSuggestion(_ suggestion: [String]) {
+        guard let place = viewModel.destinationSuggestionList?.results?[0].name else { return }
+        let suggestionText = "Apakah yang anda maksud \(place) di: \(suggestion.joined(separator: ", "))"
+        let utterance = AVSpeechUtterance(string: suggestionText)
+        utterance.voice = AVSpeechSynthesisVoice(language: "id-ID")
+        synthesizer.speak(utterance)
+        print("called synth")
+    }
+    
+    @objc func handleCalendarButton() {
+//        let originPoint = String(viewModel.originDegree?[0] ?? 0.0) + "," + String(viewModel.originDegree?[1] ?? 0.0)
+        synthesizer.stopSpeaking(at: .immediate)
+        let destinationPoint = String(viewModel.destinationSuggestionList?.results?[0].geometry?.location?.lat ?? 0.0) + "," + String(viewModel.destinationSuggestionList?.results?[0].geometry?.location?.lng ?? 0.0)
+        print(currentLocationDegrees ?? "0.0,0.0" + "---" + destinationPoint)
+        viewModel.fetch(originPoint: currentLocationCoordinate ?? "0.0,0.0", destinationPoint: destinationPoint)
     }
     
 }
 
 extension TransportViewController {
     
+    func updateLabelDestinationSuggestion(suggestion: String) {
+        labelOption.text = suggestion
+    }
+    
     func updateMaps() {
         addMapMarker(originPoint: viewModel.originDegree ?? [CLLocationDegrees](), destinationPoint: viewModel.destinationDegree ?? [CLLocationDegrees]())
         mapsBoundSetter()
         updateMapsView(mapsPath: viewModel.mapsBounds ?? GMSPath())
+        labelOption.text = viewModel.tripFare ?? ""
     }
     
     private func addMapMarker(originPoint: [CLLocationDegrees], destinationPoint: [CLLocationDegrees]) {
@@ -185,6 +231,7 @@ extension TransportViewController: CLLocationManagerDelegate {
             let currentLocation = location.coordinate
             currentLocationDegrees = [currentLocation.latitude, currentLocation.longitude]
             let point = String(currentLocation.latitude) + "," + String(currentLocation.longitude)
+            currentLocationCoordinate = point
             print("point: \(point)")
             viewModel.fetch(originPoint: point, destinationPoint: viewModel.destination ?? "")
             
