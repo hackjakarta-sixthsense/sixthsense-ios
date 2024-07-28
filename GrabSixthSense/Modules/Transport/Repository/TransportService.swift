@@ -33,7 +33,7 @@ struct TransportService {
     }
     
     static func fetchSuggestionDestination(destination: String, callback: @escaping (DestinationSuggestionResponse?) -> ()) {
-        let urlString = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=\(destination)&key=AIzaSyAF33xAdH7MRJFIk_NKaOELizcR3bL0--s"
+        let urlString = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=\(destination)&key=AIzaSyDFJcgKnokCBHtr2jXUhysaej5DdK-tp7w"
         
         ApiRequest.shared.request(urlString, method: .post) { response in
             switch response.result {
