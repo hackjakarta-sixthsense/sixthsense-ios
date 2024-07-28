@@ -47,13 +47,13 @@ class LauncherHomeMenu: UICollectionView,
     }
     
     internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return contentSources?.payload?.count ?? 0
+        return contentSources?.menu?.listMenu?.count ?? 0
     }
     
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuCell.id, for: indexPath) as! MenuCell
         
-        if let data = contentSources?.payload, indexPath.item < data.count {
+        if let data = contentSources?.menu?.listMenu, indexPath.item < data.count {
             cell.configure(data: data[indexPath.item])
         }
         
@@ -131,8 +131,9 @@ class LauncherHomeMenu: UICollectionView,
         
         func configure(data: Launcher.Home.MenuResponse.Payload?) {
             if let data = data {
-                contentIV.image = .apply(
-                    assets: (Assets(rawValue: data.icon!) ?? .none)!)
+                if let url = data.icon {
+                    contentIV.apply(loadFrom: url)
+                }
                 titleLabel.text = data.name
             } else {
                 contentIV.image = nil

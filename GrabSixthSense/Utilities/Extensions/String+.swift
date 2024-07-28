@@ -5,7 +5,25 @@
 //  Created by Ardyan Atmojo on 21/07/24.
 //
 
-import Foundation
+import SwiftUI
+
+extension String {
+    
+    func convertLongTo(dateFormat: String) -> String? {
+        let isoFormatter = ISO8601DateFormatter()
+        isoFormatter.formatOptions = [
+            .withInternetDateTime, .withFractionalSeconds
+        ]
+        
+        if let selfDate = isoFormatter.date(from: self) {
+            let formatter = DateFormatter()
+            formatter.dateFormat = dateFormat
+            return formatter.string(from: selfDate)
+        }
+        
+        return nil
+    }
+}
 
 extension NSMutableAttributedString {
     

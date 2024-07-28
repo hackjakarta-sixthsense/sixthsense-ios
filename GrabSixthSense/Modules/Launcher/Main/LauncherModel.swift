@@ -12,7 +12,11 @@ struct Launcher {
     struct Home {
         
         struct MenuResponse: Decodable {
-            var payload: [Payload?]?
+            var menu: Content?
+            
+            struct Content: Decodable {
+                var listMenu: [Payload?]?
+            }
             
             struct Payload: Decodable {
                 var icon: String?
@@ -22,18 +26,26 @@ struct Launcher {
         
         
         struct PaymentResponse: Decodable {
-            var payload: [Payload?]?
+            var payment: Content?
+            
+            struct Content: Decodable {
+                var listPayment: [Payload?]?
+            }
             
             struct Payload: Decodable {
                 var caption: String?
-                var title: String?
+                var content: String?
                 var icon: String?
             }
         }
         
         struct PromoResponse: Decodable {
-            var title: String?
-            var payload: [Payload?]?
+            var promo: Content?
+            
+            struct Content: Decodable {
+                var title: String?
+                var listPromo: [Payload?]?
+            }
             
             struct Payload: Decodable {
                 var image: String?

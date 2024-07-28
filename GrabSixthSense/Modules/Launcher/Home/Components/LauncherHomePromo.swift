@@ -74,18 +74,18 @@ class LauncherHomePromo: UIView,
         default: break
         }
         
-        titleLabel.text = contentSources?.title
+        titleLabel.text = contentSources?.promo?.title
         collectionView.reloadData()
     }
     
     internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return contentSources?.payload?.count ?? 0
+        return contentSources?.promo?.listPromo?.count ?? 0
     }
     
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PromoCell.id, for: indexPath) as! PromoCell
         
-        if let data = contentSources?.payload, indexPath.item < data.count {
+        if let data = contentSources?.promo?.listPromo, indexPath.item < data.count {
             cell.configure(data: data[indexPath.item])
         }
         
@@ -171,10 +171,12 @@ class LauncherHomePromo: UIView,
         func configure(data: Launcher.Home.PromoResponse.Payload?) {
             if let data = data {
                 calendarHSV.alpha = 1
-                contentIV.image = .apply(
-                    assets: (Assets(rawValue: data.image!) ?? .none)!)
                 titleLabel.text = data.title
-                dateLabel.text = "Until \(data.validUntil ?? "")"
+                dateLabel.text = "Until \(data.validUntil?.convertLongTo(dateFormat: "dd MMM") ?? "")"
+                
+                if let url = data.image {
+                    contentIV.apply(loadFrom: url)
+                }
             } else {
                 calendarHSV.alpha = 0
                 contentIV.image = nil

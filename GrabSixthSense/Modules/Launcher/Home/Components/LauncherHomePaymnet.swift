@@ -46,13 +46,13 @@ class LauncherHomePaymnet: UICollectionView,
     }
     
     internal func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return contentSources?.payload?.count ?? 0
+        return contentSources?.payment?.listPayment?.count ?? 0
     }
     
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContentCell.id, for: indexPath) as! ContentCell
         
-        if let data = contentSources?.payload, indexPath.item < data.count {
+        if let data = contentSources?.payment?.listPayment, indexPath.item < data.count {
             cell.configure(data: data[indexPath.item])
         }
         
@@ -123,9 +123,11 @@ class LauncherHomePaymnet: UICollectionView,
                 }
                 
                 captionLabel.text = data.caption
-                titleLabel.text = data.title
-                contentIV.image = .apply(
-                    assets: (Assets(rawValue: data.icon!) ?? .none)!)
+                titleLabel.text = data.content
+                
+                if let url = data.icon {
+                    contentIV.apply(loadFrom: url)
+                }
                 
                 backgroundColor = .grayBG
             } else {

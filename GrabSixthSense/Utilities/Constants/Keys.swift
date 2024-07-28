@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+enum Keys: String {
+    case baseURL = "Base URL"
+    case gMapsURL = "GMaps URL"
+}
